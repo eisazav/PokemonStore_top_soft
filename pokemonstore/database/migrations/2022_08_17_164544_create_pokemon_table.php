@@ -35,9 +35,9 @@ return new class extends Migration
             $table->boolean('of_the_month');
         });
 
-        Schema::table('pokemon', function (Blueprint $table) {
-            $table->foreign('evolutionId')->references('id')->on('pokemon');
-        });
+        #Schema::table('pokemon', function (Blueprint $table) {
+            #$table->foreign('evolutionId')->references('id')->on('pokemon');
+        #});
     }
 
     /**

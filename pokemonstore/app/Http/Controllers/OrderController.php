@@ -14,7 +14,7 @@ class OrderController extends Controller
         $viewData = [];
         $viewData['orders'] = Order::where('user_id',Auth::id())->get();
 
-        return view('order.index')->with('viewData',$viewData);
+        return view('orders.list')->with('viewData',$viewData);
     }
 
     public function show($id)
@@ -22,21 +22,26 @@ class OrderController extends Controller
         $viewData = [];
         $order = Order::findOrFail($id);
         $viewData["order"] = $order;
-        return view('admin.orders.show')->with("viewData", $viewData);
+        return view('orders.show')->with("viewData", $viewData);
     }
 
 
-    public function create(Request $request)
+    public function save(Request $request)
     {
         Order::validate($request);
-        Order::save($request->only(['status','dateOrder','dateDelivery','paymentMethods']));
-        return redirect()->route('home');
+        Order::create($request->only(['status','dateOrder','dateDelivery','paymentMethods']));
+        return redirect()->route('home.home');
+    }
+
+    public function create()
+    {
+        return view('orders.create');
     }
 
     public function delete($id)
     {
-        Order::destroy($id)
-        return redirect()->route('home');
+        Order::destroy($id);
+        return redirect()->route('home.home');
     }
 
     public function update(Request $request)
@@ -47,6 +52,6 @@ class OrderController extends Controller
             $order[$key] = $value;
         }
         $order->save();
-        return redirect()->route('home');
+        return redirect()->route('home.home');
     }
 }

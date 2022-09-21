@@ -10,7 +10,7 @@ class HomeController extends Controller
     {
         $viewData = [];
         $viewData["orders"]= Order::orderBy('id', 'DESC')->get();
-        return view('home.index')->with('viewData',$viewData);
+        return view('home.home')->with('viewData',$viewData);
     }
 
 }
