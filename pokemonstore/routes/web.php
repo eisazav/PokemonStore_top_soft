@@ -22,4 +22,25 @@ Route::get('/home', 'App\Http\Controllers\HomeController@index')->name("home");
 //Routes Orders
 Route::get('/orders/list', 'App\Http\Controllers\OrderController@index')->name("orders.list");
 Route::get('/orders/show/{id}', 'App\Http\Controllers\OrderController@show')->name("orders.show");
+Route::get('/', function () {
+    return view('home');
+})->middleware('auth');
+
+Route::get('/register',[RegisterController::class, 'create'])
+    ->middleware('guest')
+    ->name('register.index');
+
+Route::post('/register',[RegisterController::class, 'store'])
+    ->name('register.store');
+
+Route::get('/login',[LogInController::class, 'create'])
+    ->middleware('guest')
+    ->name('login.index');
+
+Route::post('/login',[LogInController::class, 'store'])
+    ->name('login.store');
+
+Route::get('/logout',[LogInController::class, 'destroy'])
+    ->middleware('auth')
+    ->name('login.destroy');
 
