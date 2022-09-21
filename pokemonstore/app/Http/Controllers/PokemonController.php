@@ -8,8 +8,7 @@ use App\Models\Pokemon;
 class PokemonController extends Controller {
     public function index() {
         $viewData = [];
-        $viewData['title'] = 'Pokemon Online Store';
-        $viewData['subtitle'] = 'List of pokemon';
+        $viewData['title'] = 'Pokemons Online Store';
         $viewData['pokemons'] = Pokemon::all();
 
         return view('pokemons.list')->with('viewData', $viewData);
@@ -18,11 +17,10 @@ class PokemonController extends Controller {
     public function show($id) {
         $viewData = [];
         $pokemon = Pokemon::findOrFail($id);
-        $viewData['title'] = $pokemon['name'].' - Pokemon Online Store';
-        $viewData['subtitle'] = $pokemon['name'].' - Pokemon information';
+        $viewData['title'] = $pokemon->getName() . ' - Pokemons Online Store';
         $viewData['pokemon'] = $pokemon;
 
-        return view('pokemon.show')->with('viewData', $viewData);
+        return view('pokemons.show')->with('viewData', $viewData);
     }
 
     public function create() {
@@ -30,7 +28,7 @@ class PokemonController extends Controller {
         $viewData['title'] = 'Create product';
         $viewData['subtitle'] = 'Creating a new Pokemon';
 
-        return view('pokemon.create')->with('viewData', $viewData);
+        return view('pokemons.create')->with('viewData', $viewData);
     }
 
     public function save(Request $request) {
@@ -51,6 +49,7 @@ class PokemonController extends Controller {
             'stat_special_defense' => 'required',
             'stat_speed' => 'required',
             'ofTheMonth' => 'required',
+            'image' => 'required',
         ]);
         $finalData = $request->only([
             'name',
@@ -69,6 +68,7 @@ class PokemonController extends Controller {
             'stat_special_defense',
             'stat_speed',
             'ofTheMonth',
+            'image',
         ]);
         Pokemon::create($finalData);
 
