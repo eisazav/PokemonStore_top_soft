@@ -44,3 +44,6 @@ Route::get('/logout',[LogInController::class, 'destroy'])
     ->middleware('auth')
     ->name('login.destroy');
 
+Route::get('/admin', [AdminController::class, 'index'])
+    ->middleware('auth.admin')
+    ->name('admin.index');
