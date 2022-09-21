@@ -6,7 +6,7 @@
     <div class="card">
       <div class="card-body text-center">
         <a href="{{ route('orders.show', ['id'=> $order->getId()]) }}"
-          class="mt-2 btn bg-primary text-white">id: {{ $order->getId()}} status: {{ $order->getStatus()}}</a>
+          class="mt-2 btn bg-primary text-black">id: {{ $order->getId()}} status: {{ $order->getStatus()}}</a>
       </div>
     </div>
   </div>
