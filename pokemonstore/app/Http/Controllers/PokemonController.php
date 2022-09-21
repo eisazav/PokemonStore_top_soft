@@ -5,14 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Pokemon;
 
-class ProductController extends Controller {
+class PokemonController extends Controller {
     public function index() {
         $viewData = [];
         $viewData['title'] = 'Pokemon Online Store';
         $viewData['subtitle'] = 'List of pokemon';
         $viewData['pokemons'] = Pokemon::all();
 
-        return view('pokemon.index')->with('viewData', $viewData);
+        return view('pokemons.list')->with('viewData', $viewData);
     }
 
     public function show($id) {

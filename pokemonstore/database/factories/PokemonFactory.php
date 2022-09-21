@@ -34,6 +34,7 @@ class PokemonFactory extends Factory
             'stat_special_defense' => fake()->randomNumber(2),
             'stat_speed' => fake()->randomNumber(2),
             'of_the_month' => fake()->boolean(),
+            'image' => fake()->imageUrl(),
         ];
     }
 }

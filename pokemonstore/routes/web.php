@@ -13,13 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //Routes Pokemon
+Route::get('/', 'App\Http\Controllers\PokemonController@index')->name('pokemons.index');
+Route::get('/pokemons/{id}', 'App\Http\Controllers\PokemonController@show')->name('pokemons.show');
 Route::get('/pokemons', 'App\Http\Controllers\PokemonController@index')->name('pokemons.index');
 Route::get('/pokemons/create', 'App\Http\Controllers\PokemonController@create')->name('pokemons.create');
-Route::get('/pokemons/stats', 'App\Http\Controllers\PokemonController@stats')->name('pokemons.stats');
 Route::post('/pokemons/save', 'App\Http\Controllers\PokemonController@save')->name('pokemons.save');
 //Routes Home
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name("home.home");
-Route::get('/', 'App\Http\Controllers\HomeController@index')->middleware('auth');
 //Routes Orders
 Route::get('/orders/list', 'App\Http\Controllers\OrderController@index')->name("orders.list");
 Route::get('/orders/show/{id}', 'App\Http\Controllers\OrderController@show')->name("orders.show");

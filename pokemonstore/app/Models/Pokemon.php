@@ -31,6 +31,7 @@ class Pokemon extends Model
      * $this->attributes['stat_special_defense'] - integer
      * $this->attributes['stat_speed'] - integer
      * $this->attributes['of_the_month'] - boolean
+     * $this->attributes['image'] - string
      */
 
     /* #region Properties */
@@ -51,6 +52,7 @@ class Pokemon extends Model
         'stat_special_defense',
         'stat_speed',
         'of_the_month',
+        'image',
     ];
 
     protected $hidden = [
@@ -74,67 +76,71 @@ class Pokemon extends Model
     }
 
     public function getName() {
-        return $this->attribute['name'];
+        return $this->attributes['name'];
     }
 
     public function getType() {
-        return $this->attribute['type'];
+        return $this->attributes['type'];
     }
 
     public function getWeakness() {
-        return $this->attribute['weakness'];
+        return $this->attributes['weakness'];
     }
 
     public function getAblity() {
-        return $this->attribute['ablity'];
+        return $this->attributes['ablity'];
     }
 
     public function getHeight() {
-        return $this->attribute['height'];
+        return $this->attributes['height'];
     }
 
     public function getWeight() {
-        return $this->attribute['weight'];
+        return $this->attributes['weight'];
     }
 
     public function getDescription() {
-        return $this->attribute['description'];
+        return $this->attributes['description'];
     }
 
     public function getCost() {
-        return $this->attribute['cost'];
+        return $this->attributes['cost'];
     }
 
     public function getEvolution() {
-        return $this->attribute['evolution'];
+        return $this->attributes['evolution'];
     }
 
     public function getStatHp() {
-        return $this->attribute['stat_hp'];
+        return $this->attributes['stat_hp'];
     }
 
     public function getStatAttack() {
-        return $this->attribute['stat_attack'];
+        return $this->attributes['stat_attack'];
     }
 
     public function getStatDefense() {
-        return $this->attribute['stat_defense'];
+        return $this->attributes['stat_defense'];
     }
 
     public function getStatSpecialAttack() {
-        return $this->attribute['stat_special_attack'];
+        return $this->attributes['stat_special_attack'];
     }
 
     public function getStatSpecialDefense() {
-        return $this->attribute['stat_special_defense'];
+        return $this->attributes['stat_special_defense'];
     }
 
     public function getStatSpeed() {
-        return $this->attribute['stat_speed'];
+        return $this->attributes['stat_speed'];
     }
 
     public function getOfTheMonth() {
-        return $this->attribute['of_the_month'];
+        return $this->attributes['of_the_month'];
+    }
+
+    public function getImage() {
+        return $this->attributes['image'];
     }
     /* #endregion */
 
@@ -144,67 +150,71 @@ class Pokemon extends Model
     }
 
     public function setName($name) {
-        $this->attribute['name'] = $name;
+        $this->attributes['name'] = $name;
     }
 
     public function setType($type) {
-        $this->attribute['type'] = $type;
+        $this->attributes['type'] = $type;
     }
 
     public function setWeakness($weakness) {
-        $this->attribute['weakness'] = $weakness;
+        $this->attributes['weakness'] = $weakness;
     }
 
     public function setAblity($ablity) {
-        $this->attribute['ablity'] = $ablity;
+        $this->attributes['ablity'] = $ablity;
     }
 
     public function setHeight($height) {
-        $this->attribute['height'] = $height;
+        $this->attributes['height'] = $height;
     }
 
     public function setWeight($weight) {
-        $this->attribute['weight'] = $weight;
+        $this->attributes['weight'] = $weight;
     }
 
     public function setDescription($description) {
-        $this->attribute['description'] = $description;
+        $this->attributes['description'] = $description;
     }
 
     public function setCost($cost) {
-        $this->attribute['cost'] = $cost;
+        $this->attributes['cost'] = $cost;
     }
 
     public function setEvolution($evolution) {
-        $this->attribute['evolution'] = $evolution;
+        $this->attributes['evolution'] = $evolution;
     }
 
     public function setStatHp($stat_hp) {
-        $this->attribute['stat_hp'] = $stat_hp;
+        $this->attributes['stat_hp'] = $stat_hp;
     }
 
     public function setStatAttack($stat_attack) {
-        $this->attribute['stat_attack'] = $stat_attack;
+        $this->attributes['stat_attack'] = $stat_attack;
     }
 
     public function setStatDefense($stat_defense) {
-        $this->attribute['stat_defense'] = $stat_defense;
+        $this->attributes['stat_defense'] = $stat_defense;
     }
 
     public function setStatSpecialAttack($stat_special_attack) {
-        $this->attribute['stat_special_attack'] = $stat_special_attack;
+        $this->attributes['stat_special_attack'] = $stat_special_attack;
     }
 
     public function setStatSpecialDefense($stat_special_defense) {
-        $this->attribute['stat_special_defense'] = $stat_special_defense;
+        $this->attributes['stat_special_defense'] = $stat_special_defense;
     }
 
     public function setStatSpeed($stat_speed) {
-        $this->attribute['stat_speed'] = $stat_speed;
+        $this->attributes['stat_speed'] = $stat_speed;
     }
 
     public function setOfTheMonth($of_the_month) {
-        $this->attribute['of_the_month'] = $of_the_month;
+        $this->attributes['of_the_month'] = $of_the_month;
+    }
+
+    public function setImage($image) {
+        $this->attributes['image'] = $image;
     }
     /* #endregion */
 }
