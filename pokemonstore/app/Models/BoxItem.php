@@ -5,8 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Pokemon extends Model
+class BoxItem extends Model
 {
+    protected $table = 'box_item';
+
     use HasFactory;
 
     /**
