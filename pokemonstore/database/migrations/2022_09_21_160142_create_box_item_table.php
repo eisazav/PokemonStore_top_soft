@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('box_item', function (Blueprint $table) {
             $table->id();
-            $table->bigInt('box_id')->unsigned();
-            $table->bigInt('pokemon_id')->unsigned();
+            $table->bigInteger('box_id')->unsigned();
+            $table->bigInteger('pokemon_id')->unsigned();
             $table->timestamps();
         });
 
