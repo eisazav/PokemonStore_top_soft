@@ -13,10 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('boxItem', function (Blueprint $table) {
+        Schema::create('box_item', function (Blueprint $table) {
             $table->id();
-            $table->foreign('boxId')->references('id')->on('box');
-            $table->foreign('pokemonId')->references('id')->on('pokemon');
+            $table->integer('box_id')->unsigned();
+            $table->integer('pokemon_id')->unsigned();
+            $table->timestamps();
+        });
+
+        Schema::table('box_item', function (Blueprint $table) {
+            $table->foreign('box_id')->references('id')->on('box');
+            $table->foreign('pokemon_id')->references('id')->on('pokemon');
         });
     }
 
@@ -27,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('boxItem');
+        Schema::dropIfExists('box_item');
     }
 };
