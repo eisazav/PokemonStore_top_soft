@@ -6,6 +6,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Pokemon;
 use App\Models\User;
+use App\Models\Box;
+use App\Models\BoxItem;
 
 class DatabaseSeeder extends Seeder
 {
@@ -23,6 +25,8 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        Pokemon::factory(8)->create();
+        Pokemon::factory(20)->create();
+        Box::factory(4)->create();
+        BoxItem::factory(20)->create();
     }
 }
