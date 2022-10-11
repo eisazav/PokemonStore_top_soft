@@ -5,6 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\BoxItem;
+use App\Models\Pokemon;
+
 class Box extends Model
 {
     protected $table = 'box';
@@ -17,11 +20,15 @@ class Box extends Model
      * $this->attributes['created_at'] - timestamp
      * $this->attributes['updated_at'] - timestamp
      * $this->attributes['name'] - string
+     * $this->attributes['cost'] - double
+     * $this->attributes['image'] - string
      */
 
     /* #region Properties */
     protected $fillable = [
         'name',
+        'cost',
+        'image',
     ];
 
     protected $hidden = [
@@ -47,6 +54,23 @@ class Box extends Model
     public function getName() {
         return $this->attributes['name'];
     }
+
+    public function getCost() {
+        return $this->attributes['cost'];
+    }
+
+    public function getImage() {
+        return $this->attributes['image'];
+    }
+
+    public function getBoxItems($id) {
+        $ids = BoxItem::select('pokemon_id')->where('box_id', $id)->get();
+        $pokemons = array();
+        foreach ($ids as $id) {
+            $pokemons[] = Pokemon::findOrFail($id['pokemon_id']);
+        }
+        return $pokemons;
+    }
     /* #endregion */
 
     /* #region Setters */
@@ -56,6 +80,14 @@ class Box extends Model
 
     public function setName($name) {
         $this->attributes['name'] = $name;
+    }
+
+    public function setCost($cost) {
+        $this->attributes['cost'] = $cost;
+    }
+
+    public function setImage($image) {
+        $this->attributes['image'] = $image;
     }
     /* #endregion */
 }

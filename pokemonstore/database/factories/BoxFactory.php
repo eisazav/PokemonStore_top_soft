@@ -19,6 +19,8 @@ class BoxFactory extends Factory
     {
         return [
             'name' => fake()->name(),
+            'cost' => fake()->randomNumber(2),
+            'image' => fake()->imageUrl(),
         ];
     }
 }
