@@ -8,7 +8,7 @@
         crossorigin="anonymous" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link href="{{ asset('/css/admin.css') }}" rel="stylesheet" />
-    <title>@yield('title', 'Admin - Online Store')</title>
+    <title>@yield('title', 'Administration - Pokemon Store')</title>
 </head>
 
 <body>
@@ -21,7 +21,6 @@
             <hr />
             <ul class="nav flex-column">
                 <li><a href="{{ route('admin.home.index') }}" class="nav-link text-white">- Admin - Home</a></li>
-                <li><a href="{{ route('admin.supplier.index') }}" class="nav-link text-white">- Admin - Suppliers</a></li>
                 <li><a href="{{ route('admin.product.index') }}" class="nav-link text-white">- Admin - Products</a></li>
                 <li><a href="{{ route('home.index') }}" class="mt-2 btn bg-primary text-white">Go back to the home page</a>
                     
@@ -44,7 +43,7 @@
         <div class="container"> <small>
                 Copyright - <a class="text-reset fw-bold text-decoration-none" target="_blank"
                     href="#">
-                    Felipe Álvarez </a>
+                    Mario Alejandro Muñetón Durango </a>
             </small> </div>
     </div>
     <!-- footer -->
