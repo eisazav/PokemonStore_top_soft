@@ -3,7 +3,7 @@
 @section('content')
 <div class="card mb-4">
     <div class="card-header"> 
-        Create Products
+        Create Pokemons
     </div>
     <div class="card-body">
         @if($errors->any())
@@ -14,7 +14,7 @@
         </ul>
         @endif
 
-        <form method="POST" action="{{ route('admin.product.store') }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('admin.pokemon.store') }}" enctype="multipart/form-data">
             @csrf
             <div class="row">
                 <div class="col">
@@ -27,9 +27,9 @@
                 </div>
                 <div class="col">
                     <div class="mb-3 row">
-                        <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Brand:</label>
+                        <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Type:</label>
                         <div class="col-lg-10 col-md-6 col-sm-12">
-                            <input name="brand" value="{{ old('brand') }}" type="text" class="form-control">
+                            <input name="type" value="{{ old('type') }}" type="text" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -37,9 +37,25 @@
             <div class="row">
                 <div class="col">
                     <div class="mb-3 row">
-                        <label class="col-lg-4 col-md-6 col-sm-12 col-form-label">Category:</label>
+                        <label class="col-lg-4 col-md-6 col-sm-12 col-form-label">Weakness:</label>
                         <div class="col-lg-8 col-md-6 col-sm-12">
-                            <input name="category" value="{{ old('category') }}" type="text" class="form-control">
+                            <input name="weakness" value="{{ old('weakness') }}" type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="mb-3 row">
+                        <label class="col-lg-4 col-md-6 col-sm-12 col-form-label">Ability:</label>
+                        <div class="col-lg-8 col-md-6 col-sm-12">
+                            <input name="ability" value="{{ old('ability') }}" type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="mb-3 row">
+                        <label class="col-lg-4 col-md-6 col-sm-12 col-form-label">Height:</label>
+                        <div class="col-lg-8 col-md-6 col-sm-12">
+                            <input name="height" value="{{ old('height') }}" type="text" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -53,9 +69,9 @@
                 </div>
                 <div class="col">
                     <div class="mb-3 row">
-                        <label class="col-lg-4 col-md-6 col-sm-12 col-form-label">Price:</label>
+                        <label class="col-lg-4 col-md-6 col-sm-12 col-form-label">Cost:</label>
                         <div class="col-lg-8 col-md-6 col-sm-12">
-                            <input name="price" value="{{ old('price') }}" type="number" class="form-control">
+                            <input name="cost" value="{{ old('cost') }}" type="number" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -81,7 +97,7 @@
 
 <div class="card">
     <div class="card-header"> 
-        Manage Products
+        Manage Pokemons
     </div>
     <div class="card-body">
         <table class="table table-bordered table-striped">
@@ -95,17 +111,17 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($viewData["products"] as $product)
+                @foreach ($viewData["pokemons"] as $product)
                 <tr>
-                    <td>{{ $product->getId() }}</td>
-                    <td>{{ $product->getName() }}</td>
+                    <td>{{ $pokemon->getId() }}</td>
+                    <td>{{ $pokemon->getName() }}</td>
                     <td>
-                        <a class="btn btn-primary" href="{{route('admin.product.edit', ['id'=> $product->getId()])}}">
+                        <a class="btn btn-primary" href="{{route('admin.pokemon.edit', ['id'=> $pokemon->getId()])}}">
                             <i class="bi-pencil"></i>
                         </a>
                     </td>
                     <td>
-                        <form action="{{ route('admin.product.delete', $product->getId())}}" method="POST"> 
+                        <form action="{{ route('admin.pokemon.delete', $pokemon->getId())}}" method="POST"> 
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger"> <i class="bi-trash"></i>
@@ -113,7 +129,7 @@
                         </form>
                     </td>
                     <td>
-                        <a class="btn btn-primary" href="{{route('admin.historyProduct.index', ['id'=> $product->getId()])}}">
+                        <a class="btn btn-primary" href="{{route('admin.historyPokemon.index', ['id'=> $pokemon->getId()])}}">
                             <i class="bi bi-clipboard"></i>
                         </a>
                     </td>
