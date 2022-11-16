@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //Routes Home
-Route::get('/', 'App\Http\Controllers\PokemonController@index')->name('pokemons.index');
+Route::get('/', 'App\Http\Controllers\PokemonController@index')->name('home.index');
+Route::get('language/{locale}', 'App\Http\Controllers\LocalizationController@index')->name('language.index');
 
 //Routes Pokemon
 Route::get('/pokemon', 'App\Http\Controllers\PokemonController@index')->name('pokemons.index');
