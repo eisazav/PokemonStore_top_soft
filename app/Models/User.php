@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Order;
-use HasApiTokens, HasFactory, Notifiable;
+
 
 class User extends Authenticatable
 {
@@ -20,12 +20,14 @@ class User extends Authenticatable
      * $this->attributes['password'] - string - contains the user password 
      * $this->attributes['remember_token'] - string - contains the user password 
      * $this->attributes['role'] - string - contains the user role (client or admin) 
-     * $this->attributes['balance'] - int - contains the user balanc
+     * $this->attributes['total'] - int - contains the user total
      * $this->attributes['created_at'] - timestamp - contains the user creation date
      * $this->attributes['updated_at'] - timestamp - contains the user update date
      * $this->orders - Order[] - contains the associated orders 
      */
-    
+
+    use HasApiTokens, HasFactory, Notifiable;
+
     public function getId() 
     { 
         return $this->attributes['id']; 
@@ -76,14 +78,14 @@ class User extends Authenticatable
         $this->attributes['role'] = $role; 
     } 
     
-    public function getBalance() 
+    public function getTotal() 
     { 
-        return $this->attributes['balance']; 
+        return $this->attributes['total']; 
     } 
     
-    public function setBalance($balance) 
+    public function setTotal($total) 
     { 
-        $this->attributes['balance'] = $balance; 
+        $this->attributes['total'] = $total; 
     }
     
     public function getCreatedAt()
@@ -130,7 +132,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'balance',
+        'total',
     ];
 
     /**
