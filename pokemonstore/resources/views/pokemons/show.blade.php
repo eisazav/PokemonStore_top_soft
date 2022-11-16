@@ -11,36 +11,36 @@
               <img src="{{ $viewData['pokemon']->getImage() }}" alt="{{ $viewData['pokemon']->getName() }}" class="h-full w-full object-cover object-center">
             </div>
           </div>
-          <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{{ $viewData['pokemon']->getName() }}</h1>
+          <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{{ $viewData['pokemon']->getName() }} - {{ __('Pokemon Store') }}</h1>
         </div>
 
         <!-- Options -->
         <div class="mt-4 lg:row-span-3 lg:mt-0">
-          <h2>Product information</h2>
+          <h2>{{ __('Product information') }}</h2>
           <p class="text-3xl tracking-tight text-gray-900">${{ $viewData['pokemon']->getCost() }}</p>
 
           <div class="mt-10">
-            <h3 class="text-sm font-medium text-gray-900">Highlights</h3>
+            <h3 class="text-sm font-medium text-gray-900">{{ __('Highlights') }}</h3>
             <div class="mt-4">
               <ul role="list" class="list-disc space-y-2 pl-4 text-sm">
-                <li class="text-gray-500">Type: {{ $viewData['pokemon']->getType() }}</li>
-                <li class="text-gray-500">Height: {{ $viewData['pokemon']->getHeight() }}</li>
-                <li class="text-gray-500">Weight: {{ $viewData['pokemon']->getWeight() }}</li>
-                <li class="text-gray-500">Evolution: {{ $viewData['pokemon']->getEvolution() }}</li>
+                <li class="text-gray-500">{{ __('Type') }}: {{ $viewData['pokemon']->getType() }}</li>
+                <li class="text-gray-500">{{ __('Height') }}: {{ $viewData['pokemon']->getHeight() }}</li>
+                <li class="text-gray-500">{{ __('Weight') }}: {{ $viewData['pokemon']->getWeight() }}</li>
+                <li class="text-gray-500">{{ __('Evolution') }}: {{ $viewData['pokemon']->getEvolution() }}</li>
               </ul>
             </div>
           </div>
 
           <div class="mt-10">
-            <h3 class="text-sm font-medium text-gray-900">Stats</h3>
+            <h3 class="text-sm font-medium text-gray-900">{{ __('Stats') }}</h3>
             <div class="mt-4">
               <ul role="list" class="list-disc space-y-2 pl-4 text-sm">
-                <li class="text-gray-500">HP: {{ $viewData['pokemon']->getStatHp() }}</li>
-                <li class="text-gray-500">Attack: {{ $viewData['pokemon']->getStatAttack() }}</li>
-                <li class="text-gray-500">Defense: {{ $viewData['pokemon']->getStatDefense() }}</li>
-                <li class="text-gray-500">Special Attack: {{ $viewData['pokemon']->getStatSpecialAttack() }}</li>
-                <li class="text-gray-500">Special Defense: {{ $viewData['pokemon']->getStatSpecialDefense() }}</li>
-                <li class="text-gray-500">Speed: {{ $viewData['pokemon']->getStatSpeed() }}</li>
+                <li class="text-gray-500">{{ __('HP') }}: {{ $viewData['pokemon']->getStatHp() }}</li>
+                <li class="text-gray-500">{{ __('Attack') }}: {{ $viewData['pokemon']->getStatAttack() }}</li>
+                <li class="text-gray-500">{{ __('Defense') }}: {{ $viewData['pokemon']->getStatDefense() }}</li>
+                <li class="text-gray-500">{{ __('Special Attack') }}: {{ $viewData['pokemon']->getStatSpecialAttack() }}</li>
+                <li class="text-gray-500">{{ __('Special Defense') }}: {{ $viewData['pokemon']->getStatSpecialDefense() }}</li>
+                <li class="text-gray-500">{{ __('Speed') }}: {{ $viewData['pokemon']->getStatSpeed() }}</li>
               </ul>
             </div>
           </div>
@@ -53,7 +53,7 @@
         <div class="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pt-6 lg:pb-16 lg:pr-8">
           <!-- Description and details -->
           <div>
-            <h3 class="sr-only">Description</h3>
+            <h3 class="sr-only">{{ __('Description') }}</h3>
 
             <div class="space-y-6">
               <p class="text-base text-gray-900">{{ $viewData['pokemon']->getDescription() }}</p>

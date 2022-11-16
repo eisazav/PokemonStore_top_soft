@@ -8,18 +8,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/fontawesome.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" />
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
-    <title>@yield('title', 'Tienda')</title>
+    <title>@yield('title', {{ __('Shop') }})</title>
 </head>
 
 <body>
     <!-- header -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary py-4">
         <div class="container">
-            <a class="navbar-brand" href="{{ route('home.index') }}">Tienda</a>
+            <a class="navbar-brand" href="{{ route('home.index') }}">{{ __('Shop') }}</a>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ms-auto">
-                    <a class="nav-link active" href="{{ route('home.index') }}">Inicio</a>
-                    <a class="nav-link active" href="{{ route('orders.index') }}">Ordenes</a>
+                    <a class="nav-link active" href="{{ route('home.index') }}">{{ __('Home') }}</a>
+                    <a class="nav-link active" href="{{ route('orders.index') }}">{{ __('Orders') }}</a>
                 </div>
             </div>
         </div>
