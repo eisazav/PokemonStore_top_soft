@@ -47,4 +47,5 @@ jobs:
         DB_DATABASE: database/database.sqlite
       run: |
         cd pokemonstore
+        php artisan migrate
         php artisan test
