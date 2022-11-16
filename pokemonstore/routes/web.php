@@ -46,28 +46,4 @@ Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')-
 Route::get('/cart/remove/{id}', 'App\Http\Controllers\CartController@remove')->name("cart.remove");
 Route::post('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name("cart.purchase");
 
-//Routes admin
-#Route::get('/admin', 'App\Http\Controllers\Admin\AdminHomeController@index')->name("admin.home.index");
 
-//Routes register
-Route::get('/register','App\Http\Controllers\RegisterController@create')
-    ->middleware('guest')
-    ->name('register.index');
-
-Route::post('/register','App\Http\Controllers\RegisterController@store')
-    ->name('register.store');
-
-Route::get('/login','App\Http\Controllers\LogInController@create')
-    ->middleware('guest')
-    ->name('login.index');
-
-Route::post('/login','App\Http\Controllers\LogInController@store')
-    ->name('login.store');
-
-Route::get('/logout','App\Http\Controllers\LogInController@destroy')
-    ->middleware('auth')
-    ->name('login.destroy');
-
-Route::get('/admin', 'App\Http\Controllers\AdminController@index')
-    ->middleware('auth')
-    ->name('admin.index');

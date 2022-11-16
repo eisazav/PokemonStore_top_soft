@@ -14,27 +14,6 @@
         </p>
       </div>
       @include('partials/language_switcher')
-      <ul class="w-1/2 px-16 ml-auto flex justify-end pt-1">
-      @if(auth()->check())
-        <li class="mx-8">
-          <p class="text-xl">{{ __('Welcome') }} <b>{{ auth()->user()->name }}</b></p>
-        </li>
-        <li>
-          <a href="{{ route('login.destroy') }}" class="font-bold
-          py-3 px-4 rounded-md bg-red-500 hover:bg-red-600">{{ __('Log Out') }}</a>
-        </li>
-      @else
-        <li class="mx-6">
-          <a href="{{ route('login.index') }}" class="font-semibold
-          hover:bg-indigo-700 py-3 px-4 rounded-md">{{ __('Log In') }}</a>
-        </li>
-        <li>
-          <a href="{{ route('register.index') }}" class="font-semibold
-          border-2 border-white py-2 px-4 rounded-md hover:bg-white
-          hover:text-indigo-700">{{ __('Register') }}</a>
-        </li>
-      @endif
-      </ul>
     </nav>
     @yield('content')
   </body>
