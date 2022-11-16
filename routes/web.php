@@ -47,4 +47,7 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/products/{id}/edit', 'App\Http\Controllers\Admin\AdminProductController@edit')->name("admin.product.edit");
     Route::put('/admin/products/{id}/update', 'App\Http\Controllers\Admin\AdminProductController@update')->name("admin.product.update");
     Route::get('/admin/historyProduct/{id}', 'App\Http\Controllers\Admin\AdminProductHistoryController@index')->name("admin.historyProduct.index");
+    Route::get('/admin/users/PDF', 'App\Http\Controllers\Admin\AdminUserController@pdf')->name("admin.user.pdf"); //Ruta para tener el PDF de los usuarios
+    Route::get('/admin/users/Excel', 'App\Http\Controllers\Admin\AdminUserController@excel')->name("admin.user.excel"); //Ruta para tener el excel de los usuarios
+    Auth::routes();
 });
