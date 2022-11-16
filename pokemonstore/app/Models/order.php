@@ -15,7 +15,7 @@ class Order extends Model
      * $this->attributes['dateOrder'] - date - contains the date of creation
      * $this->attributes['dateDelivery'] - date - contains the date of delivery
      * $this->attributes['paymentMethod'] - string - contains the payment method order 
-        
+     * $this->attributes['total'] - int - contains total cost of the order
      * $this->items[] - Item - child items of the order
      * $this->user - User - Owner of the orderr
      */ 
@@ -51,6 +51,16 @@ class Order extends Model
     public function setStatus($status)
     {
         $this->attributes['status'] = $status;
+    }
+
+    public function getTotal()
+    {
+        return $this->attributes['total'];
+    }
+
+    public function setTotal($total)
+    {
+        $this->attributes['total'] = $total;
     }
 
     public function getPaymentMethod()
@@ -103,10 +113,10 @@ class Order extends Model
         $this->User = $User;
     }
     
-    #public function items()
-    #{
-    #    return $this->hasMany(Item::class);
-    #}
+    public function items()
+    {
+        return $this->hasMany(Item::class);
+    }
     
     public function user()
     {

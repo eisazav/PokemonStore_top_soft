@@ -32,25 +32,8 @@ class PokemonController extends Controller {
     }
 
     public function save(Request $request) {
-        $request->validate([
-            'name' => 'required',
-            'type' => 'required',
-            'weakness' => 'required',
-            'ablity' => 'required',
-            'height' => 'required',
-            'weight' => 'required',
-            'description' => 'required',
-            'cost' => 'required',
-            'evolution' => 'required',
-            'stat_hp' => 'required',
-            'stat_attack' => 'required',
-            'stat_defense' => 'required',
-            'stat_special_attack' => 'required',
-            'stat_special_defense' => 'required',
-            'stat_speed' => 'required',
-            'ofTheMonth' => 'required',
-            'image' => 'required',
-        ]);
+
+        Pokemon::validate($request);
         $finalData = $request->only([
             'name',
             'type',
@@ -67,11 +50,60 @@ class PokemonController extends Controller {
             'stat_special_attack',
             'stat_special_defense',
             'stat_speed',
-            'ofTheMonth',
+            'of_the_month',
             'image',
         ]);
         Pokemon::create($finalData);
 
-        return back();
+
+        return redirect()->route('pokemons.list');
     }
+
+    public function update($id) {
+        $viewData = [];
+        $pokemon = Pokemon::findOrFail($id);
+        $viewData['title'] = 'update'.$pokemon->getName() . ' - Pokemons Online Store';
+        $viewData['pokemon'] = $pokemon;
+
+        return view('pokemons.update')->with('viewData', $viewData);
+    }
+
+    public function storageupdate(Request $request)
+    {  
+        Pokemon::validate($request);
+        $pokemon = Pokemon::findOrFail($request["id"]);
+        $finalData = $request->only([
+            'name',
+            'type',
+            'weakness',
+            'ablity',
+            'height',
+            'weight',
+            'description',
+            'cost',
+            'evolution',
+            'stat_hp',
+            'stat_attack',
+            'stat_defense',
+            'stat_special_attack',
+            'stat_special_defense',
+            'stat_speed',
+            'of_the_month',
+            'image',
+        ]);
+
+        foreach ($finalData as $key => $value) {
+            $pokemon[$key] = $value;
+        }
+        
+        $pokemon->save();
+        
+        return redirect()->route('pokemons.list');
+    }
+
+    public function destroy($id) {
+        Pokemon::destroy($id);
+        return redirect()->route('pokemons.list');
+    }
+
 }

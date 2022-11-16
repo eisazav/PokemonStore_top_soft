@@ -24,7 +24,7 @@ return new class extends Migration
             $table->double('weight');
             $table->string('description');
             $table->double('cost');
-            $table->boolean('evolution');
+            $table->boolean('evolution')->default(0);
             $table->bigInteger('evolutionId')->nullable();
             $table->integer('stat_hp');
             $table->integer('stat_attack');
@@ -32,7 +32,7 @@ return new class extends Migration
             $table->integer('stat_special_attack');
             $table->integer('stat_special_defense');
             $table->integer('stat_speed');
-            $table->boolean('of_the_month');
+            $table->boolean('of_the_month')->default(0);
         });
 
         #Schema::table('pokemon', function (Blueprint $table) {

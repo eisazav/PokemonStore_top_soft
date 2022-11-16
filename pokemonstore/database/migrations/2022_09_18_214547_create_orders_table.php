@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('status');
+            $table->string('status')->default('Aceptada');
             $table->date('dateOrder');
             $table->date('dateDelivery');
+            $table->integer('total');
             $table->string('paymentMethod')->default('Efectivo');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id', 'fk_orders_users')->references('id')->on('users');

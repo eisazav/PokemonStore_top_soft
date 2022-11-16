@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Item;
+
 
 class Pokemon extends Model
 {
@@ -55,12 +57,37 @@ class Pokemon extends Model
         'image',
     ];
 
+    public static function validate($request)
+    {
+        $request->validate([
+            'name'=> 'required|max:255',
+            'type'=> 'required|max:255',
+            'weakness'=> 'required|max:255',
+            'ablity'=> 'required|max:255',
+            'height'=> 'required|numeric|gt:0',
+            'weight'=> 'required|numeric|gt:0',
+            'description'=> 'required|max:255',
+            'cost'=> 'required|numeric|gt:0',
+            'evolution'=> 'boolean',
+            'stat_hp'=> 'required|numeric|gt:0',
+            'stat_attack'=> 'required|numeric|gt:0',
+            'stat_defense'=> 'required|numeric|gt:0',
+            'stat_special_attack'=> 'required|numeric|gt:0',
+            'stat_special_defense'=> 'required|numeric|gt:0',
+            'stat_speed'=> 'required|numeric|gt:0',
+            'of_the_month'=> 'boolean',
+            'image'=> 'required',
+        ]);
+    }
+
     protected $hidden = [
         'created_at',
         'updated_at',
     ];
 
     protected $casts = [
+        'evolution' => 'boolean',
+        'of_the_month' => 'boolean',
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
     ];
@@ -217,4 +244,19 @@ class Pokemon extends Model
         $this->attributes['image'] = $image;
     }
     /* #endregion */
+
+    public function item()
+    {
+        return $this->belongsToMany(Item::class);
+    }
+
+    public function getItems()
+    {
+        return $this->items;
+    }
+
+    public function setItems($items)
+    {
+        $this->items = $items;
+    }
 }

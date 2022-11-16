@@ -16,10 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'App\Http\Controllers\PokemonController@index')->name('pokemons.index');
 
 //Routes Pokemon
-Route::get('/pokemon', 'App\Http\Controllers\PokemonController@index')->name('pokemons.index');
-Route::get('/pokemon/{id}', 'App\Http\Controllers\PokemonController@show')->name('pokemons.show');
+Route::get('/pokemon', 'App\Http\Controllers\PokemonController@index')->name('pokemons.list');
 Route::get('/pokemon/create', 'App\Http\Controllers\PokemonController@create')->name('pokemons.create');
+Route::get('/pokemon/{id}', 'App\Http\Controllers\PokemonController@show')->name('pokemons.show');
+Route::get('/pokemon/update/{id}', 'App\Http\Controllers\PokemonController@update')->name('pokemons.update');
+Route::post('/pokemon/storageupdate', 'App\Http\Controllers\PokemonController@storageupdate')->name('pokemons.storageupdate');
+Route::get('/pokemon/destroy/{id}', 'App\Http\Controllers\PokemonController@destroy')->name('pokemons.destroy');
 Route::post('/pokemon/save', 'App\Http\Controllers\PokemonController@save')->name('pokemons.save');
+
 
 //Routes Boxes
 Route::get('/box', 'App\Http\Controllers\BoxController@index')->name('box.index');
@@ -31,10 +35,18 @@ Route::post('/box/save', 'App\Http\Controllers\BoxController@save')->name('box.s
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name("home.home");
 
 //Routes Orders
-Route::get('/orders/list', 'App\Http\Controllers\OrderController@index')->name("orders.list");
-Route::get('/orders/show/{id}', 'App\Http\Controllers\OrderController@show')->name("orders.show");
-Route::get('/orders/create', 'App\Http\Controllers\OrderController@create')->name("orders.create");
-Route::post('/orders/save', 'App\Http\Controllers\OrderController@save')->name("orders.save");
+Route::get('/orders', 'App\Http\Controllers\OrderController@index')->name("orders.list");
+Route::get('/orders/{id}', 'App\Http\Controllers\OrderController@show')->name("orders.show");
+
+//Routes Cart
+Route::get('/cart', 'App\Http\Controllers\CartController@index')->name("cart.index");
+Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add");
+Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name("cart.removeAll");
+Route::get('/cart/remove/{id}', 'App\Http\Controllers\CartController@remove')->name("cart.remove");
+Route::post('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name("cart.purchase");
+
+//Routes admin
+#Route::get('/admin', 'App\Http\Controllers\Admin\AdminHomeController@index')->name("admin.home.index");
 
 //Routes register
 Route::get('/register','App\Http\Controllers\RegisterController@create')

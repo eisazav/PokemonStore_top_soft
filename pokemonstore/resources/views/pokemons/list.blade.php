@@ -13,7 +13,7 @@
             <div class="mt-4 flex justify-between">
               <div>
                 <h3 class="text-sm text-gray-700">
-                  <a href="{{ route('pokemons.show', $pokemon['id']) }}">
+                  <a href="{{ route('pokemons.show', $pokemon->getId()) }}">
                     <span aria-hidden="true" class="absolute inset-0"></span>
                     {{ $pokemon->getName() }}
                   </a>
