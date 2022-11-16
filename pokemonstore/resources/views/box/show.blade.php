@@ -16,25 +16,26 @@
 
         <!-- Options -->
         <div class="mt-4 lg:row-span-3 lg:mt-0">
-          <h2>Product information</h2>
+          <h2>{{ __('Product information') }}</h2>
           <p class="text-3xl tracking-tight text-gray-900">${{ $viewData['box']->getCost() }}</p>
 
           <div class="mt-10">
-            <h3 class="text-sm font-medium text-gray-900">Pokemons Included</h3>
+            <h3 class="text-sm font-medium text-gray-900">{{ __('Pokemons Included') }}</h3>
             <div class="mt-4">
               <ul role="list" class="list-disc space-y-2 pl-4 text-sm">
                 @foreach ($viewData['pokemons'] as $pokemon)
                   <li class="text-gray-500">
                     <a href="{{ route('pokemons.show', $pokemon->getId()) }}">
-                      {{ $pokemon->getName() }}</li>
+                      {{ $pokemon->getName() }}
                     </a>
+                  </li>
                 @endforeach
               </ul>
             </div>
           </div>
 
           <div class="rounded-md shadow pt-8">
-            <a href="#" class="flex w-full pokemons-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 md:py-4 md:px-10 md:text-lg">Buy</a>
+            <a href="#" class="flex w-full pokemons-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 md:py-4 md:px-10 md:text-lg">{{ __('Buy') }}</a>
           </div>
         </div>
       </div>
