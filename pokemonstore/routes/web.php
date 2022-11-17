@@ -27,6 +27,8 @@ Route::group(['middleware' => ['auth','admin']], function () {
     Route::post('/admin/pokemon/storageupdate', 'App\Http\Controllers\Admin\PokemonController@storageupdate')->name('admin.pokemons.storageupdate');
     Route::get('/admin/pokemon/destroy/{id}', 'App\Http\Controllers\Admin\PokemonController@destroy')->name('admin.pokemons.destroy');
     Route::post('/admin/pokemon/save', 'App\Http\Controllers\Admin\PokemonController@save')->name('admin.pokemons.save');
+    Route::get('/admin/users/PDF', 'App\Http\Controllers\Admin\AdminUserController@pdf')->name("admin.user.pdf"); //Ruta para tener el PDF de los usuarios
+    Route::get('/admin/users/Excel', 'App\Http\Controllers\Admin\AdminUserController@excel')->name("admin.user.excel"); //Ruta para tener el excel de los usuarios
 });
 
 Auth::routes();
