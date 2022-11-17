@@ -27,3 +27,9 @@ Route::get('/pokemon/{id}', 'App\Http\Controllers\Api\PokemonApi@show')->name('a
 Route::get('/box', 'App\Http\Controllers\Api\BoxApi@index')->name('api.box.index');
 Route::get('/box/paginate', 'App\Http\Controllers\Api\BoxApi@paginate')->name('api.box.paginate');
 Route::get('/box/{id}', 'App\Http\Controllers\Api\BoxApi@show')->name('api.box.show');
+
+//External API
+Route::get('/news', 'App\Http\Controllers\Api\ExternalApi@index')->name('api.news');
+
+//CompuTienda API
+Route::get('/pokemons', 'App\Http\Controllers\Api\PokemonApi@index')->name('api.pokemons');
