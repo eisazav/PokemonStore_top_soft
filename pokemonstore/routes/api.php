@@ -32,4 +32,4 @@ Route::get('/box/{id}', 'App\Http\Controllers\Api\BoxApi@show')->name('api.box.s
 Route::get('/news', 'App\Http\Controllers\Api\ExternalApi@index')->name('api.news');
 
 //CompuTienda API
-Route::get('/pokemons', 'App\Http\Controllers\Api\PokemonApi@index')->name('api.pokemons');
+Route::get('/computers', 'App\Http\Controllers\Api\CompuTiendaApi@index')->name('api.computers');
