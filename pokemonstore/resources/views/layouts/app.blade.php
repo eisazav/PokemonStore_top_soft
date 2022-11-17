@@ -27,3 +27,4 @@
     </nav>
     @yield('content')
   </body>
+  
