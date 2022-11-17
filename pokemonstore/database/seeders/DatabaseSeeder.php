@@ -1,32 +1,24 @@
 <?php
-
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
-use App\Models\Pokemon;
-use App\Models\User;
-use App\Models\Box;
-use App\Models\BoxItem;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
+    /**  
      * Seed the application's database.
      *
      * @return void
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        DB::statement('SET FOREIGN_KEY_CHECKS=0');
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-        User::factory(3)->create();
-        Pokemon::factory(20)->create();
-        Box::factory(4)->create();
-        BoxItem::factory(20)->create();
+        DB::table('users')->truncate();
+
+        $this->call([ UsersTableSeeder::class]);
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }
 }
