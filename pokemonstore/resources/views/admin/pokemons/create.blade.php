@@ -1,8 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('content')
 <div class="container">
     <div class="card">
-        <div class="card-header">Actualizar pokemon</div>
+        <div class="card-header">Crear pokemon</div>
         <div class="card-body">
             @if($errors->any())
             <ul id="errors" class="alert alert-danger list-unstyled">
@@ -11,10 +11,8 @@
                 @endforeach
             </ul>
             @endif
-            <form method="POST" action="{{ route('pokemons.storageupdate') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('admin.pokemons.save') }}" enctype="multipart/form-data">
                 @csrf
-                <input type="hidden" name="id" value="{{ $viewData['pokemon']->getId() }}" />
-
                 <label for="name">Nombre</label>
                 <input type="text" class="form-control" name="name" value="{{ old('name') }}" />
                 
@@ -68,7 +66,7 @@
                 <label for="image">Url imagen</label>
                 <input type="text" class="form-control" name="image" value="{{ old('image') }}">
                 
-                <input type="submit" class="mt-2 btn bg-primary text-black" value="Actualizar" />
+                <input type="submit" class="mt-2 btn bg-primary text-black" value="Crear" />
             </form>
         </div>
     </div>

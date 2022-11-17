@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('total');
             $table->string('paymentMethod')->default('Efectivo');
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreign('user_id', 'fk_orders_users')->references('id')->on('users');
+            $table->foreign('user_id', 'fk_orders_users')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -17,11 +17,11 @@ return new class extends Migration
             $table->id();
             $table->integer('quantity');
             $table->unsignedBigInteger('order_id')->nullable();
-            $table->foreign('order_id')->references('id')->on('orders');
+            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
             $table->unsignedBigInteger('pokemon_id')->nullable();
-            $table->foreign('pokemon_id')->references('id')->on('pokemon');
+            $table->foreign('pokemon_id')->references('id')->on('pokemon')->onDelete('cascade');
             $table->unsignedBigInteger('box_id')->nullable();
-            $table->foreign('box_id')->references('id')->on('box');
+            $table->foreign('box_id')->references('id')->on('box')->onDelete('cascade');
             $table->timestamps();
         });
     }

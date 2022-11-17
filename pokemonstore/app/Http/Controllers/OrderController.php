@@ -12,7 +12,7 @@ class OrderController extends Controller
     public function index()
     {   
         $viewData = [];
-        // $viewData['orders'] = Order::where('user_id',Auth::id())->get();
+        $viewData['orders'] = Order::where('user_id',Auth::id())->get();
         $viewData['orders'] = Order::all();
         return view('orders.list')->with('viewData',$viewData);
     }

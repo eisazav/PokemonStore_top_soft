@@ -61,11 +61,11 @@ class CartController extends Controller
             $order->setDateOrder(Carbon::now());
             $order->setDateDelivery(Carbon::now()->add(10, 'day'));
             $order->save();
-            // if (Auth::check()) {
-            //     $order->setUserId(auth()->user()->id);
-            // } else {
-            //     return redirect()->back();
-            // }
+            if (Auth::check()) {
+                $order->setUserId(auth()->user()->id);
+            } else {
+                return redirect()->back();
+            }
             $total = 0;
             $pokemons = Pokemon::find(array_values($pokemonsIds));
             foreach ($pokemons as $pokemon) {
