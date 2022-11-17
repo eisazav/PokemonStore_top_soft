@@ -13,14 +13,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //Routes Home
-Route::get('/', 'App\Http\Controllers\PokemonController@index')->name('home.index');
+Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index');
 Route::get('language/{locale}', 'App\Http\Controllers\LocalizationController@index')->name('language.index');
 
+Route::group(['middleware' => ['auth','admin']], function () {
+    Route::get('/admin', 'App\Http\Controllers\Admin\HomeController@index')->name("admin.home");
+
+    //CRUD Pokemons
+    Route::get('/admin/pokemon', 'App\Http\Controllers\Admin\PokemonController@index')->name('admin.pokemons.list');
+    Route::get('/admin/pokemon/create', 'App\Http\Controllers\Admin\PokemonController@create')->name('admin.pokemons.create');
+    Route::get('/admin/pokemon/{id}', 'App\Http\Controllers\Admin\PokemonController@show')->name('admin.pokemons.show');
+    Route::get('/admin/pokemon/update/{id}', 'App\Http\Controllers\Admin\PokemonController@update')->name('admin.pokemons.update');
+    Route::post('/admin/pokemon/storageupdate', 'App\Http\Controllers\Admin\PokemonController@storageupdate')->name('admin.pokemons.storageupdate');
+    Route::get('/admin/pokemon/destroy/{id}', 'App\Http\Controllers\Admin\PokemonController@destroy')->name('admin.pokemons.destroy');
+    Route::post('/admin/pokemon/save', 'App\Http\Controllers\Admin\PokemonController@save')->name('admin.pokemons.save');
+});
+
+Auth::routes();
+
 //Routes Pokemon
-Route::get('/pokemon', 'App\Http\Controllers\PokemonController@index')->name('pokemons.index');
+Route::get('/pokemon', 'App\Http\Controllers\PokemonController@index')->name('pokemons.list');
 Route::get('/pokemon/{id}', 'App\Http\Controllers\PokemonController@show')->name('pokemons.show');
-Route::get('/pokemon/create', 'App\Http\Controllers\PokemonController@create')->name('pokemons.create');
-Route::post('/pokemon/save', 'App\Http\Controllers\PokemonController@save')->name('pokemons.save');
 
 //Routes Boxes
 Route::get('/box', 'App\Http\Controllers\BoxController@index')->name('box.index');
@@ -28,34 +41,13 @@ Route::get('/box/{id}', 'App\Http\Controllers\BoxController@show')->name('box.sh
 Route::get('/box/create', 'App\Http\Controllers\BoxController@create')->name('box.create');
 Route::post('/box/save', 'App\Http\Controllers\BoxController@save')->name('box.save');
 
-//Routes Home
-Route::get('/home', 'App\Http\Controllers\HomeController@index')->name("home.home");
-
 //Routes Orders
-Route::get('/orders/list', 'App\Http\Controllers\OrderController@index')->name("orders.list");
-Route::get('/orders/show/{id}', 'App\Http\Controllers\OrderController@show')->name("orders.show");
-Route::get('/orders/create', 'App\Http\Controllers\OrderController@create')->name("orders.create");
-Route::post('/orders/save', 'App\Http\Controllers\OrderController@save')->name("orders.save");
+Route::get('/orders', 'App\Http\Controllers\OrderController@index')->name("orders.list");
+Route::get('/orders/{id}', 'App\Http\Controllers\OrderController@show')->name("orders.show");
 
-//Routes register
-Route::get('/register','App\Http\Controllers\RegisterController@create')
-    ->middleware('guest')
-    ->name('register.index');
-
-Route::post('/register','App\Http\Controllers\RegisterController@store')
-    ->name('register.store');
-
-Route::get('/login','App\Http\Controllers\LogInController@create')
-    ->middleware('guest')
-    ->name('login.index');
-
-Route::post('/login','App\Http\Controllers\LogInController@store')
-    ->name('login.store');
-
-Route::get('/logout','App\Http\Controllers\LogInController@destroy')
-    ->middleware('auth')
-    ->name('login.destroy');
-
-Route::get('/admin', 'App\Http\Controllers\AdminController@index')
-    ->middleware('auth')
-    ->name('admin.index');
+//Routes Cart
+Route::get('/cart', 'App\Http\Controllers\CartController@index')->name("cart.index");
+Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add");
+Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name("cart.removeAll");
+Route::get('/cart/remove/{id}', 'App\Http\Controllers\CartController@remove')->name("cart.remove");
+Route::post('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name("cart.purchase");

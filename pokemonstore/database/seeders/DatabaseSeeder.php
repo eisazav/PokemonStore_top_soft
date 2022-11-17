@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-
+        User::factory(3)->create();
         Pokemon::factory(20)->create();
         Box::factory(4)->create();
         BoxItem::factory(20)->create();

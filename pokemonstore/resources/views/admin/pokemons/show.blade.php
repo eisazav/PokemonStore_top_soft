@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
   <div class="bg-white">
@@ -46,7 +46,8 @@
           </div>
 
           <div class="rounded-md shadow pt-8">
-            <a href="{{ route('cart.add', ['id'=> $viewData['pokemon']->getId()]) }}" class="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 md:py-4 md:px-10 md:text-lg">Buy</a>
+            <a href="{{ route('admin.pokemons.update', ['id'=> $viewData['pokemon']->getId()]) }}" class="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 md:py-4 md:px-10 md:text-lg">Update</a>
+            <a href="{{ route('admin.pokemons.destroy', ['id'=> $viewData['pokemon']->getId()]) }}" class="flex w-full items-center justify-center rounded-md border border-transparent bg-red-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 md:py-4 md:px-10 md:text-lg">Delete</a>
           </div>
         </div>
 

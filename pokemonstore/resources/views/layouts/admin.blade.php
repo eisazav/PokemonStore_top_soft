@@ -10,7 +10,7 @@
     <nav class="flex py-5 bg-indigo-500 text-white">
       <div class="w-1/2 px-12 mr-auto">
         <p class="text-2xl font-bold">
-          <a href="{{ route('home.index') }}">{{ __('Pokemon Store') }}</a>
+          <a href="{{ route('admin.home') }}">Panel administrador</a>
         </p>
       </div>
       @include('partials/language_switcher')

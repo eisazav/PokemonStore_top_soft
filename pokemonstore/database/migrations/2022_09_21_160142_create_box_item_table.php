@@ -21,8 +21,8 @@ return new class extends Migration
         });
 
         Schema::table('box_item', function (Blueprint $table) {
-            $table->foreign('box_id')->references('id')->on('box');
-            $table->foreign('pokemon_id')->references('id')->on('pokemon');
+            $table->foreign('box_id')->references('id')->on('box')->onDelete('cascade');
+            $table->foreign('pokemon_id')->references('id')->on('pokemon')->onDelete('cascade');
         });
     }
 

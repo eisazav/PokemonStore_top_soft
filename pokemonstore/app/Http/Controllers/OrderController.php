@@ -13,7 +13,7 @@ class OrderController extends Controller
     {   
         $viewData = [];
         $viewData['orders'] = Order::where('user_id',Auth::id())->get();
-
+        $viewData['orders'] = Order::all();
         return view('orders.list')->with('viewData',$viewData);
     }
 
