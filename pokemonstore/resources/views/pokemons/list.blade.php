@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
   <div class="bg-white">
@@ -11,9 +11,10 @@
               <img src="{{ $pokemon->getImage() }}" alt="" class="w-full h-full object-center object-cover lg:w-full lg:h-full">
             </div>
             <div class="mt-4 flex justify-between">
+            <p class="text-sm font-medium text-gray-900">{{ $pokemon->getId() }}</p>
               <div>
                 <h3 class="text-sm text-gray-700">
-                  <a href="{{ route('pokemons.show', $pokemon->getId()) }}">
+                  <a href="{{ route('admin.pokemons.show', $pokemon->getId()) }}">
                     <span aria-hidden="true" class="absolute inset-0"></span>
                     {{ $pokemon->getName() }}
                   </a>
