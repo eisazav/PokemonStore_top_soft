@@ -9,9 +9,7 @@
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Role</th>
-                    <th scope="col">Total</th>
-                    <th scope="col">Created at</th>
+                    <th scope="col">Admin</th>
                 </tr>
             </thead>
             <tbody>
@@ -20,9 +18,7 @@
                     <td>{{ $user->getId() }}</td>
                     <td>{{ $user->getName() }}</td>
                     <td>{{ $user->getEmail() }}</td>
-                    <td>{{ $user->getRole() }}</td>
-                    <td>{{ $user->getTotal() }}</td>
-                    <td>{{ $user->getCreatedAt() }}</td>
+                    <td>{{ $user->getType() }}</td>
                 </tr>
                 @endforeach
             </tbody>

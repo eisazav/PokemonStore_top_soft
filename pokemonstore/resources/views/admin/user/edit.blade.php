@@ -4,7 +4,7 @@
 
 <div class="card mb-4">
     <div class="card-header">
-        Edit Pokemon
+        Edit User
     </div>
     <div class="card-body">
         @if($errors->any())
@@ -50,19 +50,9 @@
             <div class="row">
                 <div class="col">
                     <div class="mb-3 row">
-                        <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Role:</label>
+                        <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Admin:</label>
                         <div class="col-lg-10 col-md-6 col-sm-12">
-                            <input name="role" value="{{ $viewData['user']->getRole() }}" type="text" class="form-control">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="mb-3 row">
-                        <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Total:</label>
-                        <div class="col-lg-10 col-md-6 col-sm-12">
-                            <input name="total" value="{{ $viewData['user']->getTotal() }}" type="number" class="form-control">
+                            <input name="admin" value="{{ $viewData['user']->getType() }}" type="number" class="form-control">
                         </div>
                     </div>
                 </div>

@@ -50,19 +50,9 @@
             <div class="row">
                 <div class="col">
                     <div class="mb-3 row">
-                        <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Role:</label>
+                        <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Admin:</label>
                         <div class="col-lg-10 col-md-6 col-sm-12">
-                            <input name="role" value="{{ old('role') }}" type="text" class="form-control">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="mb-3 row">
-                        <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Total:</label>
-                        <div class="col-lg-10 col-md-6 col-sm-12">
-                            <input name="total" value="{{ old('total') }}" type="number" class="form-control">
+                            <input name="admin" value="{{ old('admin') }}" type="number" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -86,9 +76,7 @@
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Role</th>
-                    <th scope="col">Total</th>
-                    <th scope="col">Created at</th>
+                    <th scope="col">Admin</th>
                     <th scope="col">Edit</th>
                     <th scope="col">Delete</th>
                 </tr>
@@ -99,9 +87,8 @@
                     <td>{{ $user->getId() }}</td>
                     <td>{{ $user->getName() }}</td>
                     <td>{{ $user->getEmail() }}</td>
-                    <td>{{ $user->getRole() }}</td>
-                    <td>{{ $user->getTotal() }}</td>
-                    <td>{{ $user->getCreatedAt() }}</td>
+                    <td>{{ $user->getType() }}</td>
+                    
                     <td>
                         <a class="btn btn-primary" href="{{route('admin.user.edit', ['id'=> $user->getId()])}}">Edit</a>
                             <i class="bi-pencil"></i>
